@@ -1,1 +1,0 @@
-kata-videostore-csharp
