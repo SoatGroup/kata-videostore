@@ -2,21 +2,21 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Original", "1_Original", "{95816968-CB84-4165-800D-471EC433D486}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Outside_In", "3_Outside_In", "{73C3861F-B328-4ABD-85B5-0FCFDDB9B579}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Uncle_Bob", "2_Uncle_Bob", "{2463DB77-59BB-4B34-8DBE-BE8FCE3FB74A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.Original", "Soat.CleanCode.VideoStore.Original\Soat.CleanCode.VideoStore.Original.csproj", "{E3EF44DD-AE09-48CD-AA05-D0A82D7E7038}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Outside_In", "3_Outside_In", "{73C3861F-B328-4ABD-85B5-0FCFDDB9B579}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.Original.Tests", "Soat.CleanCode.VideoStore.Original.Tests\Soat.CleanCode.VideoStore.Original.Tests.csproj", "{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.Original", "1_Original\Soat.CleanCode.VideoStore.Original\Soat.CleanCode.VideoStore.Original.csproj", "{E3EF44DD-AE09-48CD-AA05-D0A82D7E7038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBob", "Soat.CleanCode.VideoStore.UncleBob\Soat.CleanCode.VideoStore.UncleBob.csproj", "{A011800D-CDA8-4169-8524-2A5E0DE92FA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.Original.Tests", "1_Original\Soat.CleanCode.VideoStore.Original.Tests\Soat.CleanCode.VideoStore.Original.Tests.csproj", "{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBob.Tests", "Soat.CleanCode.VideoStore.UncleBob.Tests\Soat.CleanCode.VideoStore.UncleBob.Tests.csproj", "{CA13D6DF-9438-49E2-ACA8-950CD19ECAA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBob", "2_Uncle_Bob\Soat.CleanCode.VideoStore.UncleBob\Soat.CleanCode.VideoStore.UncleBob.csproj", "{A011800D-CDA8-4169-8524-2A5E0DE92FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.OutsideIn.Tests", "Soat.CleanCode.VideoStore.OutsideIn.Tests\Soat.CleanCode.VideoStore.OutsideIn.Tests.csproj", "{754841B7-3F8B-46E1-9145-5542DBDB6173}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBob.Tests", "2_Uncle_Bob\Soat.CleanCode.VideoStore.UncleBob.Tests\Soat.CleanCode.VideoStore.UncleBob.Tests.csproj", "{CA13D6DF-9438-49E2-ACA8-950CD19ECAA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.OutsideIn", "Soat.CleanCode.VideoStore.OutsideIn\Soat.CleanCode.VideoStore.OutsideIn.csproj", "{DB8A52A8-EF82-4A27-BDA2-0CC084D8AFEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.OutsideIn.Tests", "3_Outside_In\Soat.CleanCode.VideoStore.OutsideIn.Tests\Soat.CleanCode.VideoStore.OutsideIn.Tests.csproj", "{754841B7-3F8B-46E1-9145-5542DBDB6173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.OutsideIn", "3_Outside_In\Soat.CleanCode.VideoStore.OutsideIn\Soat.CleanCode.VideoStore.OutsideIn.csproj", "{DB8A52A8-EF82-4A27-BDA2-0CC084D8AFEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

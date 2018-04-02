@@ -1,0 +1,5 @@
+.idea/
+.vs/
+.vscode/
+coverage/
+node_modules/
