@@ -2,9 +2,9 @@
 
 Code associé à la _(future)_ série d’articles sur le blog de Soat :
 
-- [Partie 1](http://blog.soat.fr/2018/04/cleancode-videostore-cs-ts-part1/)
-- [Partie 2](http://blog.soat.fr/2018/04/cleancode-videostore-cs-ts-part2/)
-- [Partie 3](http://blog.soat.fr/2018/04/cleancode-videostore-cs-ts-part3/)
+- [Partie 1](http://blog.soat.fr/2018/05/cleancode-videostore-cs-ts-analyse/)
+- [Partie 2](http://blog.soat.fr/2018/08/cleancode-videostore-refacto-oncle-bob)
+- Partie 3
 
 ## Objectif des articles
 
