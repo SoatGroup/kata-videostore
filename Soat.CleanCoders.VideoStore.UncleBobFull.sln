@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBobFull", "2_Uncle_Bob_Full\Soat.CleanCode.VideoStore.UncleBobFull\Soat.CleanCode.VideoStore.UncleBobFull.csproj", "{E3EF44DD-AE09-48CD-AA05-D0A82D7E7038}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soat.CleanCode.VideoStore.UncleBobFull.Tests", "2_Uncle_Bob_Full\Soat.CleanCode.VideoStore.UncleBobFull.Tests\Soat.CleanCode.VideoStore.UncleBobFull.Tests.csproj", "{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926C2D6F-CF05-4AB7-B998-8CA13C513B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
