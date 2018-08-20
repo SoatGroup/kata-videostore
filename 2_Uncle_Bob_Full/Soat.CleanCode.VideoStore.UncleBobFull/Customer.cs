@@ -6,7 +6,10 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
     public class Customer
     {
         private readonly List<Rental> _rentals = new List<Rental>();
+
         public string Name { get; }
+        public int FrequentRenterPoints { get; private set; }
+        public decimal TotalAmount { get; private set; }
 
         public Customer(string name)
         {
@@ -20,9 +23,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         public string Statement()
         {
-            var frequentRenterPoints = 0;
-            var totalAmount          = 0m;
-            var result               = "Rental Record for " + Name + "\n";
+            var result = "Rental Record for " + Name + "\n";
             foreach (var each in _rentals)
             {
                 var thisAmount = 0m;
@@ -49,20 +50,20 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                         break;
                 }
 
-                frequentRenterPoints++;
+                FrequentRenterPoints++;
 
                 if (each.Movie.PriceCode == Movie.NEW_RELEASE
                     && each.DaysRented > 1)
                 {
-                    frequentRenterPoints++;
+                    FrequentRenterPoints++;
                 }
 
                 result      += "\t" + each.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-                totalAmount += thisAmount;
+                TotalAmount += thisAmount;
             }
 
-            result += "You owed " + totalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-            result += "You earned " + frequentRenterPoints.ToString() + " frequent renter points \n";
+            result += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+            result += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points \n";
 
             return result;
         }

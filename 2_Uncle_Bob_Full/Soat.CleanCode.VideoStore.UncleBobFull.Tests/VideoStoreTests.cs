@@ -15,12 +15,9 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull.Tests
         public void TestSingleNewReleaseStatement()
         {
             _customer.AddRental(new Rental(new Movie("The cell", Movie.NEW_RELEASE), 3));
-            Assert.Equal(
-                "Rental Record for Fred\n" +
-                "\tThe cell\t9.0\n" +
-                "You owed 9.0\n" +
-                "You earned 2 frequent renter points \n",
-                _customer.Statement());
+            _customer.Statement();
+            Assert.Equal(9.0m, _customer.TotalAmount);
+            Assert.Equal(2, _customer.FrequentRenterPoints);
         }
 
         [Fact]
