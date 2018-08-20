@@ -3,17 +3,17 @@ using System.Globalization;
 
 namespace Soat.CleanCode.VideoStore.UncleBobFull
 {
-    public class Customer
+    public class Statement
     {
         private readonly List<Rental> _rentals = new List<Rental>();
 
-        public string Name { get; }
+        private string CustomerName { get; }
         public int FrequentRenterPoints { get; private set; }
         public decimal TotalAmount { get; private set; }
 
-        public Customer(string name)
+        public Statement(string customerName)
         {
-            Name = name;
+            CustomerName = customerName;
         }
 
         public void AddRental(Rental rental)
@@ -21,9 +21,9 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             _rentals.Add(rental);
         }
 
-        public string Statement()
+        public string Generate()
         {
-            var result = "Rental Record for " + Name + "\n";
+            var result = "Rental Record for " + CustomerName + "\n";
             foreach (var each in _rentals)
             {
                 var thisAmount = 0m;
