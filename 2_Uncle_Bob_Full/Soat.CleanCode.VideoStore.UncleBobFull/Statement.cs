@@ -30,11 +30,15 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             return statementText;
         }
 
-        private string Footer()
+        private void ClearTotals()
         {
-            var totalAmount = TotalAmount.ToString("0.0", CultureInfo.InvariantCulture);
-            return $"You owed {totalAmount}\n" +
-                   $"You earned {FrequentRenterPoints} frequent renter points\n";
+            FrequentRenterPoints = 0;
+            TotalAmount = 0m;
+        }
+
+        private string Header()
+        {
+            return $"Rental Record for {CustomerName}\n";
         }
 
         private string RentalLines()
@@ -83,15 +87,11 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             return rentalLines;
         }
 
-        private string Header()
+        private string Footer()
         {
-            return $"Rental Record for {CustomerName}\n";
-        }
-
-        private void ClearTotals()
-        {
-            FrequentRenterPoints = 0;
-            TotalAmount = 0m;
+            var totalAmount = TotalAmount.ToString("0.0", CultureInfo.InvariantCulture);
+            return $"You owed {totalAmount}\n" +
+                   $"You earned {FrequentRenterPoints} frequent renter points\n";
         }
     }
 }
