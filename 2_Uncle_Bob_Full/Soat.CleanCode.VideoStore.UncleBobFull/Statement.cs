@@ -23,14 +23,18 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         public string Generate()
         {
-            Initialize();
+            ClearTotals();
             var statementText = Header();
             statementText += RentalLines();
-
-            statementText += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-            statementText += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
-
+            statementText += Footer();
             return statementText;
+        }
+
+        private string Footer()
+        {
+            var totalAmount = TotalAmount.ToString("0.0", CultureInfo.InvariantCulture);
+            return $"You owed {totalAmount}\n" +
+                   $"You earned {FrequentRenterPoints} frequent renter points\n";
         }
 
         private string RentalLines()
@@ -84,7 +88,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             return $"Rental Record for {CustomerName}\n";
         }
 
-        private void Initialize()
+        private void ClearTotals()
         {
             FrequentRenterPoints = 0;
             TotalAmount = 0m;
