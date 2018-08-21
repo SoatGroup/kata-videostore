@@ -25,6 +25,17 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         {
             Initialize();
             var statementText = Header();
+            statementText += RentalLines();
+
+            statementText += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+            statementText += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
+
+            return statementText;
+        }
+
+        private string RentalLines()
+        {
+            var rentalLines = "";
             foreach (var rental in _rentals)
             {
                 var thisAmount = 0m;
@@ -38,6 +49,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                         {
                             thisAmount += (rental.DaysRented - 2) * 1.5m;
                         }
+
                         break;
                     case Movie.NEW_RELEASE:
                         thisAmount += rental.DaysRented * 3;
@@ -48,6 +60,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                         {
                             thisAmount += (rental.DaysRented - 3) * 1.5m;
                         }
+
                         break;
                 }
 
@@ -59,14 +72,11 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                     FrequentRenterPoints++;
                 }
 
-                statementText      += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-                TotalAmount += thisAmount;
+                rentalLines += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+                TotalAmount   += thisAmount;
             }
 
-            statementText += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-            statementText += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
-
-            return statementText;
+            return rentalLines;
         }
 
         private string Header()
