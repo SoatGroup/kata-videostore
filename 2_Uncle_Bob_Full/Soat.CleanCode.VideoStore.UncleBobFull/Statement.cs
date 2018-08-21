@@ -24,7 +24,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         public string Generate()
         {
             Initialize();
-            var result = "Rental Record for " + CustomerName + "\n";
+            var statementText = Header();
             foreach (var rental in _rentals)
             {
                 var thisAmount = 0m;
@@ -59,14 +59,19 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                     FrequentRenterPoints++;
                 }
 
-                result      += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+                statementText      += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
                 TotalAmount += thisAmount;
             }
 
-            result += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-            result += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
+            statementText += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+            statementText += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
 
-            return result;
+            return statementText;
+        }
+
+        private string Header()
+        {
+            return $"Rental Record for {CustomerName}\n";
         }
 
         private void Initialize()
