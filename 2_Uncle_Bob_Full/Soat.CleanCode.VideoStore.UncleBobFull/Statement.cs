@@ -63,7 +63,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             }
 
             result += "You owed " + TotalAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
-            result += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points \n";
+            result += "You earned " + FrequentRenterPoints.ToString() + " frequent renter points\n";
 
             return result;
         }
