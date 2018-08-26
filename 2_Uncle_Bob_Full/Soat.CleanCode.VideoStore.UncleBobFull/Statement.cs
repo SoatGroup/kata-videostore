@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Soat.CleanCode.VideoStore.UncleBobFull
 {
@@ -44,11 +45,8 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         private string RentalLines()
         {
-            var rentalLines = "";
-            foreach (var rental in _rentals)
-                rentalLines += RentalLine(rental);
-
-            return rentalLines;
+            var rentalLines = _rentals.Select(RentalLine);
+            return string.Join(string.Empty, rentalLines);
         }
 
         private string RentalLine(Rental rental)
