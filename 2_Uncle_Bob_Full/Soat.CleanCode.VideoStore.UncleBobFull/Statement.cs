@@ -50,50 +50,13 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         private string RentalLine(Rental rental)
         {
-            var rentalAmount = DetermineAmount(rental);
-            var rentalPoints = DetermineFrequentRenterPoints(rental);
+            var rentalAmount = rental.DetermineAmount();
+            var rentalPoints = rental.DetermineFrequentRenterPoints();
 
             FrequentRenterPoints += rentalPoints;
             TotalAmount          += rentalAmount;
 
             return FormatRentalLine(rental, rentalAmount);
-        }
-
-        private static decimal DetermineAmount(Rental rental)
-        {
-            var rentalAmount = 0m;
-            switch (rental.Movie.PriceCode)
-            {
-                case Movie.REGULAR:
-                    rentalAmount += 2;
-                    if (rental.DaysRented > 2)
-                    {
-                        rentalAmount += (rental.DaysRented - 2) * 1.5m;
-                    }
-
-                    break;
-                case Movie.NEW_RELEASE:
-                    rentalAmount += rental.DaysRented * 3;
-                    break;
-                case Movie.CHILDREN:
-                    rentalAmount += 1.5m;
-                    if (rental.DaysRented > 3)
-                    {
-                        rentalAmount += (rental.DaysRented - 3) * 1.5m;
-                    }
-
-                    break;
-            }
-
-            return rentalAmount;
-        }
-
-        private static int DetermineFrequentRenterPoints(Rental rental)
-        {
-            var bonusIsEarned = rental.Movie.PriceCode == Movie.NEW_RELEASE && rental.DaysRented > 1;
-            if (bonusIsEarned)
-                return 2;
-            return 1;
         }
 
         private static string FormatRentalLine(Rental rental, decimal rentalAmount) =>
