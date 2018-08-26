@@ -52,31 +52,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         private string RentalLine(Rental rental)
         {
             var rentalLine = "";
-            var thisAmount = 0m;
-
-            //dtermines the amount for each line
-            switch (rental.Movie.PriceCode)
-            {
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (rental.DaysRented > 2)
-                    {
-                        thisAmount += (rental.DaysRented - 2) * 1.5m;
-                    }
-
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmount += rental.DaysRented * 3;
-                    break;
-                case Movie.CHILDREN:
-                    thisAmount += 1.5m;
-                    if (rental.DaysRented > 3)
-                    {
-                        thisAmount += (rental.DaysRented - 3) * 1.5m;
-                    }
-
-                    break;
-            }
+            var rentalAmount = DetermineAmount(rental);
 
             FrequentRenterPoints++;
 
@@ -86,9 +62,38 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                 FrequentRenterPoints++;
             }
 
-            rentalLine += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + Environment.NewLine;
-            TotalAmount += thisAmount;
+            rentalLine += "\t" + rental.Movie.Title + "\t" + rentalAmount.ToString("0.0", CultureInfo.InvariantCulture) + Environment.NewLine;
+            TotalAmount += rentalAmount;
             return rentalLine;
+        }
+
+        private static decimal DetermineAmount(Rental rental)
+        {
+            var rentalAmount = 0m;
+            switch (rental.Movie.PriceCode)
+            {
+                case Movie.REGULAR:
+                    rentalAmount += 2;
+                    if (rental.DaysRented > 2)
+                    {
+                        rentalAmount += (rental.DaysRented - 2) * 1.5m;
+                    }
+
+                    break;
+                case Movie.NEW_RELEASE:
+                    rentalAmount += rental.DaysRented * 3;
+                    break;
+                case Movie.CHILDREN:
+                    rentalAmount += 1.5m;
+                    if (rental.DaysRented > 3)
+                    {
+                        rentalAmount += (rental.DaysRented - 3) * 1.5m;
+                    }
+
+                    break;
+            }
+
+            return rentalAmount;
         }
 
         private string Footer()
