@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 
 namespace Soat.CleanCode.VideoStore.UncleBobFull
@@ -51,15 +50,13 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         private string RentalLine(Rental rental)
         {
-            var rentalLine = "";
             var rentalAmount = DetermineAmount(rental);
             var rentalPoints = DetermineFrequentRenterPoints(rental);
 
             FrequentRenterPoints += rentalPoints;
+            TotalAmount          += rentalAmount;
 
-            rentalLine += "\t" + rental.Movie.Title + "\t" + rentalAmount.ToString("0.0", CultureInfo.InvariantCulture) + Environment.NewLine;
-            TotalAmount += rentalAmount;
-            return rentalLine;
+            return FormatRentalLine(rental, rentalAmount);
         }
 
         private static decimal DetermineAmount(Rental rental)
@@ -99,11 +96,14 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             return 1;
         }
 
-        private string Footer()
-        {
-            var totalAmount = TotalAmount.ToString("0.0", CultureInfo.InvariantCulture);
-            return $"You owed {totalAmount}{Environment.NewLine}" +
-                   $"You earned {FrequentRenterPoints} frequent renter points{Environment.NewLine}";
-        }
+        private static string FormatRentalLine(Rental rental, decimal rentalAmount) =>
+            FormatLine($"\t{rental.Movie.Title}\t{rentalAmount:0.0}");
+
+        private string Footer() =>
+            FormatLine($"You owed {TotalAmount:0.0}") +
+            FormatLine($"You earned {FrequentRenterPoints} frequent renter points");
+
+        private static string FormatLine(FormattableString source) =>
+            FormattableString.Invariant(source) + Environment.NewLine;
     }
 }
