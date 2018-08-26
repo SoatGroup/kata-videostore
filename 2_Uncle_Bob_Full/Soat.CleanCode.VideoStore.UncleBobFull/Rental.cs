@@ -13,14 +13,10 @@
             this.daysRented = daysRented;
         }
 
-        public decimal DetermineAmount() => movie.DetermineAmount(daysRented);
+        public decimal DetermineAmount() =>
+            movie.DetermineAmount(daysRented);
 
-        public int DetermineFrequentRenterPoints()
-        {
-            var bonusIsEarned = movie.PriceCode == Movie.NEW_RELEASE && daysRented > 1;
-            if (bonusIsEarned)
-                return 2;
-            return 1;
-        }
+        public int DetermineFrequentRenterPoints() =>
+            movie.DetermineFrequentRenterPoints(daysRented);
     }
 }

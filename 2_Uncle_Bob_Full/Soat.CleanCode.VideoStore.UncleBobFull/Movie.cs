@@ -41,5 +41,13 @@
 
             return rentalAmount;
         }
+
+        public int DetermineFrequentRenterPoints(int daysRented)
+        {
+            var bonusIsEarned = PriceCode == NEW_RELEASE && daysRented > 1;
+            if (bonusIsEarned)
+                return 2;
+            return 1;
+        }
     }
 }
