@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace Soat.CleanCode.VideoStore.UncleBobFull
@@ -38,7 +39,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         private string Header()
         {
-            return $"Rental Record for {CustomerName}\n";
+            return $"Rental Record for {CustomerName}{Environment.NewLine}";
         }
 
         private string RentalLines()
@@ -80,7 +81,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
                     FrequentRenterPoints++;
                 }
 
-                rentalLines += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + "\n";
+                rentalLines += "\t" + rental.Movie.Title + "\t" + thisAmount.ToString("0.0", CultureInfo.InvariantCulture) + Environment.NewLine;
                 TotalAmount   += thisAmount;
             }
 
@@ -90,8 +91,8 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         private string Footer()
         {
             var totalAmount = TotalAmount.ToString("0.0", CultureInfo.InvariantCulture);
-            return $"You owed {totalAmount}\n" +
-                   $"You earned {FrequentRenterPoints} frequent renter points\n";
+            return $"You owed {totalAmount}{Environment.NewLine}" +
+                   $"You earned {FrequentRenterPoints} frequent renter points{Environment.NewLine}";
         }
     }
 }
