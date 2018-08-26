@@ -13,7 +13,9 @@
             this.daysRented = daysRented;
         }
 
-        public decimal DetermineAmount()
+        public decimal DetermineAmount() => DetermineAmount(daysRented);
+
+        private decimal DetermineAmount(int daysRented)
         {
             var rentalAmount = 0m;
             switch (movie.PriceCode)
