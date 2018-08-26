@@ -6,7 +6,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 {
     public class Statement
     {
-        private readonly List<Rental> _rentals = new List<Rental>();
+        private readonly List<Rental> rentals = new List<Rental>();
 
         private string CustomerName { get; }
         public int FrequentRenterPoints { get; private set; }
@@ -19,16 +19,16 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         public void AddRental(Rental rental)
         {
-            _rentals.Add(rental);
+            rentals.Add(rental);
         }
 
         public string Generate()
         {
             ClearTotals();
-            var statementText = Header();
-            statementText += RentalLines();
-            statementText += Footer();
-            return statementText;
+
+            return Header() +
+                   RentalLines() +
+                   Footer();
         }
 
         private void ClearTotals()
@@ -44,7 +44,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
 
         private string RentalLines()
         {
-            var rentalLines = _rentals.Select(RentalLine);
+            var rentalLines = rentals.Select(RentalLine);
             return string.Join(string.Empty, rentalLines);
         }
 
