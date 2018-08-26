@@ -2,7 +2,7 @@
 {
     public class ChildrenMovie : Movie
     {
-        public ChildrenMovie(string title) : base(title, CHILDREN) { }
+        public ChildrenMovie(string title) : base(title) { }
 
         public override decimal DetermineAmount(int daysRented)
         {
