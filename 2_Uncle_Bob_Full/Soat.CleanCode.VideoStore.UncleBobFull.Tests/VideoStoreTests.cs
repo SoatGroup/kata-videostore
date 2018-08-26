@@ -6,12 +6,12 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull.Tests
     {
         private readonly Statement _statement = new Statement("Customer");
 
-        private readonly Movie _newRelease1 = new Movie("NEW_RELEASE_1", Movie.NEW_RELEASE);
-        private readonly Movie _newRelease2 = new Movie("NEW_RELEASE_2", Movie.NEW_RELEASE);
-        private readonly Movie _children    = new Movie("CHILDREN",      Movie.CHILDREN);
-        private readonly Movie _regular1    = new Movie("REGULAR_1",     Movie.REGULAR);
-        private readonly Movie _regular2    = new Movie("REGULAR_2",     Movie.REGULAR);
-        private readonly Movie _regular3    = new Movie("REGULAR_3",     Movie.REGULAR);
+        private readonly Movie _newRelease1 = new NewReleaseMovie("NEW_RELEASE_1");
+        private readonly Movie _newRelease2 = new NewReleaseMovie("NEW_RELEASE_2");
+        private readonly Movie _children    = new ChildrenMovie("CHILDREN");
+        private readonly Movie _regular1    = new RegularMovie("REGULAR_1");
+        private readonly Movie _regular2    = new RegularMovie("REGULAR_2");
+        private readonly Movie _regular3    = new RegularMovie("REGULAR_3");
 
         [Fact]
         public void TestSingleNewReleaseStatementTotals()
