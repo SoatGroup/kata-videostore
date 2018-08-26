@@ -53,14 +53,9 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         {
             var rentalLine = "";
             var rentalAmount = DetermineAmount(rental);
+            var rentalPoints = DetermineFrequentRenterPoints(rental);
 
-            FrequentRenterPoints++;
-
-            if (rental.Movie.PriceCode == Movie.NEW_RELEASE
-                && rental.DaysRented > 1)
-            {
-                FrequentRenterPoints++;
-            }
+            FrequentRenterPoints += rentalPoints;
 
             rentalLine += "\t" + rental.Movie.Title + "\t" + rentalAmount.ToString("0.0", CultureInfo.InvariantCulture) + Environment.NewLine;
             TotalAmount += rentalAmount;
@@ -94,6 +89,14 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
             }
 
             return rentalAmount;
+        }
+
+        private static int DetermineFrequentRenterPoints(Rental rental)
+        {
+            var bonusIsEarned = rental.Movie.PriceCode == Movie.NEW_RELEASE && rental.DaysRented > 1;
+            if (bonusIsEarned)
+                return 2;
+            return 1;
         }
 
         private string Footer()
