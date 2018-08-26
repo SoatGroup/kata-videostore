@@ -14,5 +14,32 @@
             Title     = title;
             PriceCode = priceCode;
         }
+
+        public decimal DetermineAmount(int daysRented)
+        {
+            var rentalAmount = 0m;
+            switch (PriceCode)
+            {
+                case REGULAR:
+                    rentalAmount += 2;
+                    if (daysRented > 2)
+                    {
+                        rentalAmount += (daysRented - 2) * 1.5m;
+                    }
+                    break;
+                case NEW_RELEASE:
+                    rentalAmount += daysRented * 3;
+                    break;
+                case CHILDREN:
+                    rentalAmount += 1.5m;
+                    if (daysRented > 3)
+                    {
+                        rentalAmount += (daysRented - 3) * 1.5m;
+                    }
+                    break;
+            }
+
+            return rentalAmount;
+        }
     }
 }

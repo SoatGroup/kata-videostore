@@ -13,34 +13,7 @@
             this.daysRented = daysRented;
         }
 
-        public decimal DetermineAmount() => DetermineAmount(daysRented);
-
-        private decimal DetermineAmount(int daysRented)
-        {
-            var rentalAmount = 0m;
-            switch (movie.PriceCode)
-            {
-                case Movie.REGULAR:
-                    rentalAmount += 2;
-                    if (daysRented > 2)
-                    {
-                        rentalAmount += (daysRented - 2) * 1.5m;
-                    }
-                    break;
-                case Movie.NEW_RELEASE:
-                    rentalAmount += daysRented * 3;
-                    break;
-                case Movie.CHILDREN:
-                    rentalAmount += 1.5m;
-                    if (daysRented > 3)
-                    {
-                        rentalAmount += (daysRented - 3) * 1.5m;
-                    }
-                    break;
-            }
-
-            return rentalAmount;
-        }
+        public decimal DetermineAmount() => movie.DetermineAmount(daysRented);
 
         public int DetermineFrequentRenterPoints()
         {
