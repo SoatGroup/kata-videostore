@@ -97,7 +97,7 @@ namespace Soat.CleanCode.VideoStore.UncleBobFull
         }
 
         private static string FormatRentalLine(Rental rental, decimal rentalAmount) =>
-            FormatLine($"\t{rental.Movie.Title}\t{rentalAmount:0.0}");
+            FormatLine($"\t{rental.Title}\t{rentalAmount:0.0}");
 
         private string Footer() =>
             FormatLine($"You owed {TotalAmount:0.0}") +
