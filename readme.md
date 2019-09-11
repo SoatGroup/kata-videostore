@@ -1,17 +1,17 @@
 # Clean Code - Kata Video Store en C# et TypeScript
 
-Code associé à la _(future)_ série d’articles sur le blog de Soat :
+Code associé à la série d’articles sur le blog de Soat :
 
-- [Partie 1](http://blog.soat.fr/2018/05/cleancode-videostore-cs-ts-analyse/)
-- [Partie 2](http://blog.soat.fr/2018/08/cleancode-videostore-refacto-oncle-bob)
-- Partie 3
+- [Partie 1](https://blog.soat.fr/2018/05/cleancode-videostore-cs-ts-analyse/)
+- [Partie 2](https://blog.soat.fr/2018/09/cleancode-videostore-refacto-oncle-bob-tests/)
+- [Partie 3](https://blog.soat.fr/2018/12/cleancode-videostore-refacto-oncle-bob-2/)
 
 ## Objectif des articles
 
 Parler de clean code :
 
 - à partir du fameux kata VideoStore de Martin Fowler repris par Robert "Oncle Bob" Martin en particulier dans sa vidéo [Clean Code #3 - Functions](https://cleancoders.com/episode/clean-code-episode-3/show).
-- en C# et surtout en TypeScript
+- en C# et en TypeScript _(TODO)_
 
 ## Organisation du code
 
